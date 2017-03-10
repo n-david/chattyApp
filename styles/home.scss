@@ -42,6 +42,10 @@ body {
   flex: 2;
 }
 
+.image {
+  max-width: 60%;
+}
+
 .message {
   display: flex;
   padding: 5px;
@@ -89,4 +93,9 @@ body {
   line-height: 60px;
   padding: 0 10px;
   text-decoration: none;
+}
+
+.navbar-users {
+  float: right;
+  padding-top: 23px;
 }

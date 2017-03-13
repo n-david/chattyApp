@@ -56,13 +56,15 @@ class App extends Component {
   }
 
   changeUser(content) {
-    const userData = {
-      type: 'postNotification',
-      content: `${this.state.currentUser.name} changed their name to ${content.target.value}.`
+    if (content.key === 'Enter') {
+      const userData = {
+        type: 'postNotification',
+        content: `${this.state.currentUser.name} changed their name to ${content.target.value}.`
+      }
+      const currentUser = {name: content.target.value, color: this.state.currentUser.color};
+      this.setState({currentUser});
+      this.socket.send(JSON.stringify(userData));
     }
-    const currentUser = {name: content.target.value, color: this.state.currentUser.color};
-    this.setState({currentUser});
-    this.socket.send(JSON.stringify(userData));
   }
 
   render() {
